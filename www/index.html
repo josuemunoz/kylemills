@@ -140,8 +140,6 @@ $(document).ready( function(){
 							}
 					
 					
-							
-					
 				};
 			
 				$("#mylistB").listview("refresh");		
@@ -236,7 +234,7 @@ $(document).ready( function(){
 		$('title').append(info.companyName+ " Mobile");
 		//$("#slogan > p").append(info.slogan);
 		//console.log(info.slogan);
-		setTimeout('$("#phoneStuff").clone().appendTo("#phoneStuffB")', 2000);
+		//setTimeout('$("#phoneStuff").clone().appendTo("#phoneStuffB")', 2000);
 		//console.log(info.workPhone);
 		});
 
@@ -346,56 +344,12 @@ function setFooter(company){
 		
 	
 
-        if(thePath() == 21){ 
-				var div = document.createElement('div');
-					div.setAttribute('id', 'phoneNumer');
-					div.innerHTML = '<a href="tel:800-611-4445">Call Today!</a>';
-					$("#phoneNumberHeader").append(div);
-			}
+ 
 		
-		if(thePath() == 11){
-			
-			
-			var img = document.createElement("img");
-			var a = document.createElement("a");
-				img.setAttribute("src", "http://www.mrcheckpoint.com/wp-content/uploads/2014/04/iphoneandroid21.png");
-				a.setAttribute("href", "http://manageapps.net/apps/mrcheckpoint");
-				img.setAttribute("width", "100%");
-				a.appendChild(img);
-				$("#aa").append(a);
-				
-				$(".mainPoints").css("height", "30px");
-				$("#call, #text").css("display", "none");
-				//$("#call").css("display", "none");
-				
-				textModule("Download the app below for nationwide   DUI Checkpoint alerts in real-time");
-				moduleCreate();
-				
-				createListItem("Recent Tweets", "rt", "#tweets");
-				$("#rt").click(function(){
-						console.log("it works");
+		
 						
 						
-						$.ajax({
-						url: "tweets_json.php?callback=hi",
-						dataType: "jsonp",
-						success: function(data){
-								//console.log(data);
-								//https://twitter.com/daanielwest24/status/526232837079314432
-								for(item in data){
-									//$("#bbbb").append('<li><a href="https://twitter.com/'+data[item]["retweeted_status"]["user"]["screen_name"]+'/status/'+data[item]["retweeted_status"]["id_str"]+'">'+ data[item]["user"]["url"]+'</a>' + '<img name="" src="' + data[item]["user"]["profile_image_url"] +'" width="32" height="32" alt="">' +" "+ data[item]['user']['name'] +"<br/>"+ data[item]['text']+"</li>");
-									if(data[item]["retweeted"] == true){
-										//<a href="https://twitter.com/'+data[item]["retweeted_status"]["user"]["screen_name"]+'/status/'+data[item]["retweeted_status"]["id_str"]+'">'+ data[item]["user"]["url"]+'</a>' + '
-										$("#bbbb").append('<li><img name="" src="' + data[item]["user"]["profile_image_url"] +'" width="32" height="32" alt="">' +" "+ data[item]['user']['name'] +"<br/>"+ data[item]['text']+'<br/>'+'<a href="https://twitter.com/'+data[item]["retweeted_status"]["user"]["screen_name"]+'/status/'+data[item]["retweeted_status"]["id_str"]+'">'+ data[item]["retweeted_status"]["user"]["screen_name"]+'</a>'+'</li>');
-									
-									}else{
-										$("#bbbb").append('<li><img name="" src="' + data[item]["user"]["profile_image_url"] +'" width="32" height="32" alt="">' +" "+ data[item]['user']['name'] +"<br/>"+ data[item]['text']+'<br/>'+'<a href="https://twitter.com/'+data[item]["user"]["screen_name"]+'/status/'+ data[item]["id_str"]+'">'+ data[item]["user"]["screen_name"]+'</a>'+'</li>');
-										}
-								}
-							}
-						})
-					})
-				}
+					
 
 	function createListItem(name, id, href){
 			
@@ -552,7 +506,6 @@ function setFooter(company){
 		<h1>Videos</h1>
 	</div>
 	<div data-role="content">	
-    hiiiii
 				<div id="myVideo"></div>
 	</div>
 	<div data-role="footer">
