@@ -7,6 +7,9 @@
     <author email="kylemills087@gmail.com" href="http://45graphics.net">
         kyle Mills
     </author>
+	
+	<preference name="phonegap-version" 			value="3.2.0" />
+	
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
