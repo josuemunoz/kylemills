@@ -95,9 +95,11 @@ $(document).ready( function(){
 	//********************************************************************************************************************
 	//will get the rss feed if any 
 		//KyleMills777
-		$.getJSON(yeahBaby()+"mobile/"+thePath()+"/feed.json", function(info){
-		//$.getJSON("feeApp.json", function(info){
-//"name":"youtube","linkName":"Pirmin TV",	"url":"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLNV9J2U5vADGNzyyXkAGqZkG2YVFfo0-Z&key=AIzaSyBFQj2XrOpS_4ASYupjnestMmQemDLW80g"}
+		
+			
+	$.getJSON(yeahBaby()+"mobile/"+thePath()+"/feed.json", function(info){
+			
+			
 		for(var i=0; i<info.length; i++){
 				this.info = info;
 				
@@ -105,43 +107,42 @@ $(document).ready( function(){
 				var a  = document.createElement("a");
 					a.innerHTML = info[i].linkName;
 					a.setAttribute("href", "#page4");
-					a.setAttribute("id", info[i].linkName);
+					a.setAttribute("id", i);
+					//a.setAttribute(""
 					li.appendChild(a);
 					$("#mylistB").append(li);
 					
 					
+					//for(var i=0; i<url.length; i++){
 					if(info[i].linkName){
-								//console.log(info[i].url);
+								//console.log("pirmin Tv line 130 fix");
 								
 								var fullurl = '';
 								var fullurl = info[i].url;
-								//alert(fullurl);
-							
 								a.onclick = function(){
+										//alert(this.id);
+										//alert(info[this.id].url);
 										clearTheList();
-											
 										//console.log(fullurl);
-										$.getJSON(fullurl, function(data){
+										$.getJSON(info[this.id].url, function(data){
 											console.log(data.pageInfo.totalResults);
 												for(var i=0; i<data.items.length; i++){
-														//console.log(data.items[i].snippet.title);
-														//if(i<50){
-															createList(data.items[i].snippet.resourceId.videoId, data.items[i].snippet.title, data.items[i].snippet.description);
-															//}
-														
-													$("#videos").listview("refresh");
+													//if(data.pageInfo.totalResults<50){
+														if(data.items[i].snippet.title){
+														console.log(data.items[i].snippet.title);
+														createList(data.items[i].snippet.resourceId.videoId, data.items[i].snippet.title, data.items[i].snippet.description);
+														//}
 													}
-														
+												}
+													$("#videos").listview("refresh");
 											});
-											
-											
 									}
 		
 							}
 					
-					
+							
+							
 				};
-			
 				$("#mylistB").listview("refresh");		
 	
 	
